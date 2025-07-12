@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LAN Bingo</title>
+  <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+  <script src="/static/script.js"></script>
+</head>
+<body>
+  <h1>Multiplayer LAN Bingo</h1>
+  <input id="username" placeholder="Enter your name" />
+  <button onclick="joinGame()">Join Game</button>
+  <div id="game" style="display:none;">
+    <h2 id="welcome"></h2>
+    <button onclick="drawNumber()">Draw Number</button>
+    <ul id="numbers"></ul>
+    <button onclick="claimBingo()">Claim Bingo!</button>
+    <div id="messages"></div>
+  </div>
+</body>
+</html>
