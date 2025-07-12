@@ -8,6 +8,7 @@ import random
 
 
 app = Flask(__name__)
+app.run(debug=True)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 
@@ -30,6 +31,7 @@ def handle_join(data):
 def handle_draw():
     if len(drawn_numbers) < 75:
         num = random.choice([n for n in bingo_numbers if n not in drawn_numbers])
+        print(f"number: {num}")
         drawn_numbers.append(num)
         emit('number_drawn', {'number': num}, room='bingo')
 
