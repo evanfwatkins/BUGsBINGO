@@ -1,7 +1,8 @@
-# BUGsBINGO #
+# BUGsBINGO
+
 Multiplayer BINGO project
 
-
+```{=html}
 <!-- 
 TODO:
 
@@ -22,3 +23,4 @@ NOTES:
         On iPhone: Settings > WiFi > LABS > copy "IP Address"
 
  -->
+```
