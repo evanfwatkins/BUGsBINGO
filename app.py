@@ -1,9 +1,11 @@
+import eventlet
+eventlet.monkey_patch()  # <-- MUST be first!
+
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO, emit, join_room
-import eventlet
 import random
 
-eventlet.monkey_patch()
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
@@ -43,4 +45,5 @@ def handle_disconnect():
 
 if __name__ == '__main__':
     # 0.0.0.0 lets others on LAN connect via your IP
+    eventlet.monkey_patch()
     socketio.run(app, host='0.0.0.0', port=5000)
