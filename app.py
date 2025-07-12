@@ -1,11 +1,14 @@
-from flask import Flask, render_template, request
-from flask import SocketIO, emit, join_room
 import eventlet
+eventlet.monkey_patch()  # <-- MUST be first!
+
+from flask import Flask, render_template, request
+from flask_socketio import SocketIO, emit, join_room
 import random
 
-eventlet.monkey_patch()
+
 
 app = Flask(__name__)
+app.run(debug=True)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 
@@ -28,6 +31,7 @@ def handle_join(data):
 def handle_draw():
     if len(drawn_numbers) < 75:
         num = random.choice([n for n in bingo_numbers if n not in drawn_numbers])
+        print(f"number: {num}")
         drawn_numbers.append(num)
         emit('number_drawn', {'number': num}, room='bingo')
 
@@ -43,4 +47,5 @@ def handle_disconnect():
 
 if __name__ == '__main__':
     # 0.0.0.0 lets others on LAN connect via your IP
+    eventlet.monkey_patch()
     socketio.run(app, host='0.0.0.0', port=5000)
