@@ -8,7 +8,6 @@ import random
 
 
 app = Flask(__name__)
-app.run(debug=True)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 
