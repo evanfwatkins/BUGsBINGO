@@ -13,8 +13,7 @@ NOTES:
 
     1) IN GIT BASH in the project directory, run 'python app.py'
     2) HOST Joins - http://localhost:5000
-    3) TBD - Others on LABS Wi-Fi can connect using thier IP (http://<your-local-ip>:5000)
-        (ex - http://192.168.1.42:5000)
+    3) TBD - Others on LAN can connect using thier IP (http://<local-ip>:5000)
         HOW TO:
             ON Computer: Do winKey+"cmd" > type 'ipconfig' (Windows) or ifconfig / ip a (Linux/Mac) to find your IP.
-            On iPhone: Settings > WiFi > LABS > copy "IP Address"
+            On iPhone: Settings > WiFi > wifi name > copy "IP Address"
